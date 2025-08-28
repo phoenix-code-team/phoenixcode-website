@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TechForge — Modern Tech Team</title>
+    <meta name="description" content="A modern, responsive, dark-mode Tailwind CSS one-page template for a tech team: intro, services, projects, team, and contact." />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Ubuntu", "Cantarell", "Noto Sans", "Helvetica Neue", "Arial", "sans-serif"],
+                    },
+                    boxShadow: {
+                        soft: '0 10px 30px -12px rgba(0,0,0,0.25)'
+                    },
+                    backdropBlur: {
+                        xs: '2px'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Simple reveal animation */
+        .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+        .reveal.show { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="font-inter antialiased bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+
+<!-- Decorative Background -->
+<div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10">
+    <div class="absolute -top-48 -right-48 h-96 w-96 rounded-full bg-gradient-to-tr from-indigo-300/30 to-purple-300/30 blur-3xl dark:from-indigo-500/15 dark:to-fuchsia-500/15"></div>
+    <div class="absolute -bottom-48 -left-48 h-96 w-96 rounded-full bg-gradient-to-tr from-cyan-300/30 to-emerald-300/30 blur-3xl dark:from-cyan-500/15 dark:to-emerald-500/15"></div>
+</div>
+
+<!-- Header -->
+<header class="sticky top-0 z-50 backdrop-blur border-b border-slate-200/60 bg-white/70 dark:bg-slate-950/60 dark:border-slate-800/60">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+            <a href="#home" class="flex items-center gap-2">
+                <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-fuchsia-500 text-white font-bold shadow-soft">TF</span>
+                <span class="text-xl font-semibold tracking-tight">TechForge</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm">
+                <a href="#home" class="hover:text-indigo-600 dark:hover:text-indigo-400">Intro</a>
+                <a href="#services" class="hover:text-indigo-600 dark:hover:text-indigo-400">Services</a>
+                <a href="#projects" class="hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a>
+                <a href="#team" class="hover:text-indigo-600 dark:hover:text-indigo-400">Team</a>
+                <a href="#contact" class="hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-2">
+                <button id="themeToggle" aria-label="Toggle dark mode" class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900 transition">
+                    <!-- Sun / Moon icons -->
+                    <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364-1.414-1.414M7.05 7.05 5.636 5.636m12.728 0-1.414 1.414M7.05 16.95l-1.414 1.414" /><circle cx="12" cy="12" r="4" /></svg>
+                    <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
+                </button>
+                <button id="mobileMenuBtn" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden pb-4">
+            <nav class="grid gap-2 text-sm">
+                <a href="#home" class="rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">Intro</a>
+                <a href="#services" class="rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">Services</a>
+                <a href="#projects" class="rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">Projects</a>
+                <a href="#team" class="rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">Team</a>
+                <a href="#contact" class="rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">Contact</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- Hero / Intro -->
+<section id="home" class="relative">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-24">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="reveal">
+                <div class="inline-flex items-center gap-2 rounded-full border border-slate-200/70 dark:border-slate-700/70 bg-white/70 dark:bg-slate-900/50 px-3 py-1 text-xs text-slate-600 dark:text-slate-300 shadow-soft backdrop-blur-xs">
+                    <span class="inline-block h-2 w-2 rounded-full bg-emerald-500"></span>
+                    We build reliable products — fast
+                </div>
+                <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight">
+                    Your all‑in‑one <span class="bg-gradient-to-r from-indigo-600 to-fuchsia-600 bg-clip-text text-transparent">tech partner</span>
+                </h1>
+                <p class="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-xl">We’re a senior product engineering team crafting delightful web & mobile apps, cloud infrastructure, and AI‑powered solutions.</p>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="#projects" class="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-white shadow-soft hover:bg-indigo-700 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg>
+                        View Projects
+                    </a>
+                    <a href="#contact" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 dark:border-slate-700 px-5 py-3 hover:bg-slate-100 dark:hover:bg-slate-900 transition">
+                        Get in touch
+                    </a>
+                </div>
+            </div>
+            <div class="reveal">
+                <div class="relative mx-auto aspect-[4/3] w-full max-w-xl overflow-hidden rounded-2xl border border-slate-200/70 dark:border-slate-800/80 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 shadow-soft">
+                    <!-- Mock dashboard illustration -->
+                    <div class="absolute inset-0 p-6">
+                        <div class="h-8 w-40 rounded-md bg-slate-200/80 dark:bg-slate-700/60"></div>
+                        <div class="mt-6 grid grid-cols-3 gap-4">
+                            <div class="h-32 rounded-xl bg-gradient-to-br from-indigo-500/30 to-fuchsia-500/30"></div>
+                            <div class="h-32 rounded-xl bg-gradient-to-br from-cyan-500/30 to-emerald-500/30"></div>
+                            <div class="h-32 rounded-xl bg-gradient-to-br from-amber-500/30 to-rose-500/30"></div>
+                        </div>
+                        <div class="mt-6 h-40 rounded-xl border border-dashed border-slate-300/70 dark:border-slate-700/70"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold">Services</h2>
+            <p class="mt-3 text-slate-600 dark:text-slate-300">Full‑stack capabilities to take you from idea to launch and beyond.</p>
+        </div>
+
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Card -->
+            <article class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+                <div class="flex items-center gap-3">
+            <span class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-600 text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 4h18M3 8h18M3 12h18M3 16h18M3 20h18"/></svg>
+            </span>
+                    <h3 class="text-xl font-semibold">Product Strategy</h3>
+                </div>
+                <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Discovery, roadmapping, and UX research to ensure we build the right thing first.</p>
+            </article>
+
+            <article class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+                <div class="flex items-center gap-3">
+            <span class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-fuchsia-600 text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16v12H4z"/><path d="M4 10h16"/></svg>
+            </span>
+                    <h3 class="text-xl font-semibold">Web Development</h3>
+                </div>
+                <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">High‑performance websites and apps using modern frameworks and best practices.</p>
+            </article>
+
+            <article class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+                <div class="flex items-center gap-3">
+            <span class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-600 text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V4"/><path d="M6 10l6-6 6 6"/></svg>
+            </span>
+                    <h3 class="text-xl font-semibold">Mobile Apps</h3>
+                </div>
+                <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">iOS & Android apps with beautiful UI and smooth performance.</p>
+            </article>
+
+            <article class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+                <div class="flex items-center gap-3">
+            <span class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-600 text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V22a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 8 20.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 3.4 15a1.65 1.65 0 0 0-1.51-1H2a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 3.4 8a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 8 3.6a1.65 1.65 0 0 0 1-1.51V2a2 2 0 1 1 4 0v.09A1.65 1.65 0 0 0 15 3.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 20.4 8c.36.58.51 1.26.43 1.93"/></svg>
+            </span>
+                    <h3 class="text-xl font-semibold">Cloud & DevOps</h3>
+                </div>
+                <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">CI/CD, containers, and scalable cloud architectures on AWS, GCP, and Azure.</p>
+            </article>
+
+            <article class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+                <div class="flex items-center gap-3">
+            <span class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-amber-600 text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+            </span>
+                    <h3 class="text-xl font-semibold">UI/UX Design</h3>
+                </div>
+                <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Human‑centered design, rapid prototyping, and polished interfaces.</p>
+            </article>
+
+            <article class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+                <div class="flex items-center gap-3">
+            <span class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-rose-600 text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
+            </span>
+                    <h3 class="text-xl font-semibold">AI & Data</h3>
+                </div>
+                <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">ML models, analytics, and data pipelines to unlock insights and automation.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="py-20 border-t border-slate-200/70 dark:border-slate-800/70">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold">Projects</h2>
+            <p class="mt-3 text-slate-600 dark:text-slate-300">A selection of our recent work across web, mobile, and cloud.</p>
+        </div>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- 6 project cards -->
+            <!-- Template for each card -->
+            <!-- Card 1 -->
+            <article class="reveal group overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft">
+                <div class="aspect-video bg-gradient-to-br from-indigo-500/30 to-fuchsia-500/30"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="rounded-full bg-indigo-600/10 px-2 py-0.5 text-indigo-700 dark:text-indigo-300">SaaS</span>
+                        <span class="rounded-full bg-fuchsia-600/10 px-2 py-0.5 text-fuchsia-700 dark:text-fuchsia-300">React</span>
+                    </div>
+                    <h3 class="mt-3 text-lg font-semibold">Analytics Dashboard</h3>
+                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Realtime metrics, role‑based access, and custom visualizations.</p>
+                </div>
+            </article>
+
+            <article class="reveal group overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft">
+                <div class="aspect-video bg-gradient-to-br from-emerald-500/30 to-cyan-500/30"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="rounded-full bg-emerald-600/10 px-2 py-0.5 text-emerald-700 dark:text-emerald-300">Fintech</span>
+                        <span class="rounded-full bg-cyan-600/10 px-2 py-0.5 text-cyan-700 dark:text-cyan-300">Flutter</span>
+                    </div>
+                    <h3 class="mt-3 text-lg font-semibold">Mobile Wallet</h3>
+                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Secure payments, KYC, and instant transfers across regions.</p>
+                </div>
+            </article>
+
+            <article class="reveal group overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft">
+                <div class="aspect-video bg-gradient-to-br from-amber-500/30 to-rose-500/30"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="rounded-full bg-amber-600/10 px-2 py-0.5 text-amber-700 dark:text-amber-300">E‑commerce</span>
+                        <span class="rounded-full bg-rose-600/10 px-2 py-0.5 text-rose-700 dark:text-rose-300">Laravel</span>
+                    </div>
+                    <h3 class="mt-3 text-lg font-semibold">Marketplace Platform</h3>
+                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Multi‑vendor architecture, search, and subscription billing.</p>
+                </div>
+            </article>
+
+            <article class="reveal group overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft">
+                <div class="aspect-video bg-gradient-to-br from-indigo-500/30 to-cyan-500/30"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="rounded-full bg-indigo-600/10 px-2 py-0.5 text-indigo-700 dark:text-indigo-300">Healthcare</span>
+                        <span class="rounded-full bg-cyan-600/10 px-2 py-0.5 text-cyan-700 dark:text-cyan-300">Next.js</span>
+                    </div>
+                    <h3 class="mt-3 text-lg font-semibold">Telemedicine Suite</h3>
+                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Video consults, prescriptions, and patient monitoring.</p>
+                </div>
+            </article>
+
+            <article class="reveal group overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft">
+                <div class="aspect-video bg-gradient-to-br from-emerald-500/30 to-amber-500/30"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="rounded-full bg-emerald-600/10 px-2 py-0.5 text-emerald-700 dark:text-emerald-300">AI</span>
+                        <span class="rounded-full bg-amber-600/10 px-2 py-0.5 text-amber-700 dark:text-amber-300">Python</span>
+                    </div>
+                    <h3 class="mt-3 text-lg font-semibold">Vision Inspection</h3>
+                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Automated defect detection with real‑time alerts.</p>
+                </div>
+            </article>
+
+            <article class="reveal group overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft">
+                <div class="aspect-video bg-gradient-to-br from-fuchsia-500/30 to-rose-500/30"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="rounded-full bg-fuchsia-600/10 px-2 py-0.5 text-fuchsia-700 dark:text-fuchsia-300">EdTech</span>
+                        <span class="rounded-full bg-rose-600/10 px-2 py-0.5 text-rose-700 dark:text-rose-300">Vue</span>
+                    </div>
+                    <h3 class="mt-3 text-lg font-semibold">Learning Platform</h3>
+                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Interactive courses, quizzes, and analytics for educators.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Team -->
+<section id="team" class="py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold">Our Team</h2>
+            <p class="mt-3 text-slate-600 dark:text-slate-300">A balanced group of engineers, designers, and strategists.</p>
+        </div>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <!-- Member card template -->
+            <article class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 text-center shadow-soft">
+                <div class="mx-auto h-20 w-20 rounded-full bg-gradient-to-br from-indigo-500 to-fuchsia-500 text-white grid place-items-center text-2xl font-bold">AL</div>
+                <h3 class="mt-4 text-lg font-semibold">Alex Lee</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300">Principal Engineer</p>
+                <div class="mt-4 flex justify-center gap-3 text-slate-500 dark:text-slate-400">
+                    <a href="#" aria-label="LinkedIn" class="hover:text-indigo-600 dark:hover:text-indigo-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zM8 8h3.8v2.05h.05C12.33 8.6 13.74 7.5 16 7.5c3.4 0 4 2.24 4 5.16V23h-4v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.5V23H7.99V8H8z"/></svg></a>
+                    <a href="#" aria-label="GitHub" class="hover:text-indigo-600 dark:hover:text-indigo-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.5c0 4.85 3.14 8.97 7.49 10.42.55.1.75-.24.75-.53 0-.26-.01-1.12-.02-2.04-3.05.66-3.7-1.3-3.7-1.3-.5-1.28-1.22-1.62-1.22-1.62-.99-.67.08-.66.08-.66 1.1.08 1.68 1.13 1.68 1.13.98 1.67 2.58 1.19 3.21.91.1-.71.38-1.19.69-1.46-2.44-.28-5-1.22-5-5.45 0-1.2.43-2.19 1.13-2.96-.11-.28-.49-1.4.11-2.92 0 0 .92-.29 3.02 1.13a10.46 10.46 0 0 1 5.5 0c2.1-1.42 3.02-1.13 3.02-1.13.6 1.52.22 2.64.11 2.92.7.77 1.12 1.76 1.12 2.96 0 4.24-2.56 5.17-5.01 5.44.39.33.73.98.73 1.98 0 1.43-.01 2.59-.01 2.95 0 .29.2.64.76.53 4.34-1.45 7.48-5.57 7.48-10.42C23.02 5.24 18.27.5 12 .5z"/></svg></a>
+                </div>
+            </article>
+
+            <article class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 text-center shadow-soft">
+                <div class="mx-auto h-20 w-20 rounded-full bg-gradient-to-br from-emerald-500 to-cyan-500 text-white grid place-items-center text-2xl font-bold">RM</div>
+                <h3 class="mt-4 text-lg font-semibold">Rina Malik</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300">Design Lead</p>
+                <div class="mt-4 flex justify-center gap-3 text-slate-500 dark:text-slate-400">
+                    <a href="#" aria-label="LinkedIn" class="hover:text-indigo-600 dark:hover:text-indigo-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zM8 8h3.8v2.05h.05C12.33 8.6 13.74 7.5 16 7.5c3.4 0 4 2.24 4 5.16V23h-4v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.5V23H7.99V8H8z"/></svg></a>
+                    <a href="#" aria-label="GitHub" class="hover:text-indigo-600 dark:hover:text-indigo-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.5c0 4.85 3.14 8.97 7.49 10.42.55.1.75-.24.75-.53 0-.26-.01-1.12-.02-2.04-3.05.66-3.7-1.3-3.7-1.3-.5-1.28-1.22-1.62-1.22-1.62-.99-.67.08-.66.08-.66 1.1.08 1.68 1.13 1.68 1.13.98 1.67 2.58 1.19 3.21.91.1-.71.38-1.19.69-1.46-2.44-.28-5-1.22-5-5.45 0-1.2.43-2.19 1.13-2.96-.11-.28-.49-1.4.11-2.92 0 0 .92-.29 3.02 1.13a10.46 10.46 0 0 1 5.5 0c2.1-1.42 3.02-1.13 3.02-1.13.6 1.52.22 2.64.11 2.92.7.77 1.12 1.76 1.12 2.96 0 4.24-2.56 5.17-5.01 5.44.39.33.73.98.73 1.98 0 1.43-.01 2.59-.01 2.95 0 .29.2.64.76.53 4.34-1.45 7.48-5.57 7.48-10.42C23.02 5.24 18.27.5 12 .5z"/></svg></a>
+                </div>
+            </article>
+
+            <article class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 text-center shadow-soft">
+                <div class="mx-auto h-20 w-20 rounded-full bg-gradient-to-br from-amber-500 to-rose-500 text-white grid place-items-center text-2xl font-bold">JP</div>
+                <h3 class="mt-4 text-lg font-semibold">Jordan Park</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300">Cloud Architect</p>
+                <div class="mt-4 flex justify-center gap-3 text-slate-500 dark:text-slate-400">
+                    <a href="#" aria-label="LinkedIn" class="hover:text-indigo-600 dark:hover:text-indigo-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zM8 8h3.8v2.05h.05C12.33 8.6 13.74 7.5 16 7.5c3.4 0 4 2.24 4 5.16V23h-4v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.5V23H7.99V8H8z"/></svg></a>
+                    <a href="#" aria-label="GitHub" class="hover:text-indigo-600 dark:hover:text-indigo-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.5c0 4.85 3.14 8.97 7.49 10.42.55.1.75-.24.75-.53 0-.26-.01-1.12-.02-2.04-3.05.66-3.7-1.3-3.7-1.3-.5-1.28-1.22-1.62-1.22-1.62-.99-.67.08-.66.08-.66 1.1.08 1.68 1.13 1.68 1.13.98 1.67 2.58 1.19 3.21.91.1-.71.38-1.19.69-1.46-2.44-.28-5-1.22-5-5.45 0-1.2.43-2.19 1.13-2.96-.11-.28-.49-1.4.11-2.92 0 0 .92-.29 3.02 1.13a10.46 10.46 0 0 1 5.5 0c2.1-1.42 3.02-1.13 3.02-1.13.6 1.52.22 2.64.11 2.92.7.77 1.12 1.76 1.12 2.96 0 4.24-2.56 5.17-5.01 5.44.39.33.73.98.73 1.98 0 1.43-.01 2.59-.01 2.95 0 .29.2.64.76.53 4.34-1.45 7.48-5.57 7.48-10.42C23.02 5.24 18.27.5 12 .5z"/></svg></a>
+                </div>
+            </article>
+
+            <article class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 text-center shadow-soft">
+                <div class="mx-auto h-20 w-20 rounded-full bg-gradient-to-br from-cyan-500 to-emerald-500 text-white grid place-items-center text-2xl font-bold">SK</div>
+                <h3 class="mt-4 text-lg font-semibold">Sara Khan</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300">Full‑stack Developer</p>
+                <div class="mt-4 flex justify-center gap-3 text-slate-500 dark:text-slate-400">
+                    <a href="#" aria-label="LinkedIn" class="hover:text-indigo-600 dark:hover:text-indigo-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zM8 8h3.8v2.05h.05C12.33 8.6 13.74 7.5 16 7.5c3.4 0 4 2.24 4 5.16V23h-4v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.5V23H7.99V8H8z"/></svg></a>
+                    <a href="#" aria-label="GitHub" class="hover:text-indigo-600 dark:hover:text-indigo-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.5c0 4.85 3.14 8.97 7.49 10.42.55.1.75-.24.75-.53 0-.26-.01-1.12-.02-2.04-3.05.66-3.7-1.3-3.7-1.3-.5-1.28-1.22-1.62-1.22-1.62-.99-.67.08-.66.08-.66 1.1.08 1.68 1.13 1.68 1.13.98 1.67 2.58 1.19 3.21.91.1-.71.38-1.19.69-1.46-2.44-.28-5-1.22-5-5.45 0-1.2.43-2.19 1.13-2.96-.11-.28-.49-1.4.11-2.92 0 0 .92-.29 3.02 1.13a10.46 10.46 0 0 1 5.5 0c2.1-1.42 3.02-1.13 3.02-1.13.6 1.52.22 2.64.11 2.92.7.77 1.12 1.76 1.12 2.96 0 4.24-2.56 5.17-5.01 5.44.39.33.73.98.73 1.98 0 1.43-.01 2.59-.01 2.95 0 .29.2.64.76.53 4.34-1.45 7.48-5.57 7.48-10.42C23.02 5.24 18.27.5 12 .5z"/></svg></a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-20 border-t border-slate-200/70 dark:border-slate-800/70">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold">Contact Us</h2>
+            <p class="mt-3 text-slate-600 dark:text-slate-300">Tell us about your idea — we’ll get back within one business day.</p>
+        </div>
+
+        <div class="mt-12 grid gap-10 lg:grid-cols-2">
+            <form id="contactForm" class="reveal space-y-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium">Full name</label>
+                        <input id="name" name="name" type="text" required class="mt-1 w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Jane Doe" />
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium">Email</label>
+                        <input id="email" name="email" type="email" required class="mt-1 w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500" placeholder="jane@example.com" />
+                    </div>
+                </div>
+                <div>
+                    <label for="subject" class="block text-sm font-medium">Subject</label>
+                    <input id="subject" name="subject" type="text" required class="mt-1 w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Project inquiry" />
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium">Message</label>
+                    <textarea id="message" name="message" rows="5" required class="mt-1 w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Tell us about your project, goals, and timeline..."></textarea>
+                </div>
+                <div class="flex items-center gap-2 text-sm">
+                    <input id="consent" type="checkbox" required class="h-4 w-4 rounded border-slate-300 dark:border-slate-700 text-indigo-600" />
+                    <label for="consent">I agree to the processing of my personal data.</label>
+                </div>
+                <button id="submitBtn" type="submit" class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-white shadow-soft hover:bg-indigo-700 disabled:opacity-60">
+                    <svg id="spinner" class="h-5 w-5 animate-spin hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path></svg>
+                    <span>Send message</span>
+                </button>
+            </form>
+
+            <div class="reveal">
+                <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
+                    <h3 class="text-xl font-semibold">Let’s build something great</h3>
+                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Prefer email? Reach us at <a href="mailto:hello@techforge.dev" class="text-indigo-600 dark:text-indigo-400 hover:underline">hello@techforge.dev</a>. We usually reply within 24 hours.</p>
+                    <dl class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                        <div class="rounded-xl border border-slate-200 dark:border-slate-800 p-4">
+                            <dt class="font-medium">Headquarters</dt>
+                            <dd class="mt-1 text-slate-600 dark:text-slate-300">Remote‑first, worldwide</dd>
+                        </div>
+                        <div class="rounded-xl border border-slate-200 dark:border-slate-800 p-4">
+                            <dt class="font-medium">Working hours</dt>
+                            <dd class="mt-1 text-slate-600 dark:text-slate-300">Mon–Fri, 9:00–17:00</dd>
+                        </div>
+                        <div class="rounded-xl border border-slate-200 dark:border-slate-800 p-4">
+                            <dt class="font-medium">Response time</dt>
+                            <dd class="mt-1 text-slate-600 dark:text-slate-300">Under 1 business day</dd>
+                        </div>
+                        <div class="rounded-xl border border-slate-200 dark:border-slate-800 p-4">
+                            <dt class="font-medium">Social</dt>
+                            <dd class="mt-1 text-slate-600 dark:text-slate-300">@techforge on all platforms</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-10 border-t border-slate-200/70 dark:border-slate-800/70">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-fuchsia-500 text-white font-bold">TF</span>
+                <span class="text-sm text-slate-600 dark:text-slate-300">© <span id="year"></span> TechForge. All rights reserved.</span>
+            </div>
+            <nav class="flex items-center gap-4 text-sm">
+                <a href="#services" class="hover:text-indigo-600 dark:hover:text-indigo-400">Services</a>
+                <a href="#projects" class="hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a>
+                <a href="#team" class="hover:text-indigo-600 dark:hover:text-indigo-400">Team</a>
+                <a href="#contact" class="hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
+            </nav>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn?.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Dark mode toggle with persistence
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    const preferred = localStorage.getItem('theme');
+    if (preferred === 'dark' || (!preferred && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        root.classList.add('dark');
+    }
+    themeToggle?.addEventListener('click', () => {
+        root.classList.toggle('dark');
+        localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('show');
+        });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+    // Contact form fake submit
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const spinner = document.getElementById('spinner');
+    contactForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        spinner.classList.remove('hidden');
+        setTimeout(() => {
+            spinner.classList.add('hidden');
+            submitBtn.disabled = false;
+            contactForm.reset();
+            alert('Thanks! Your message has been sent.');
+        }, 1200);
+    });
+</script>
+</body>
+</html>
