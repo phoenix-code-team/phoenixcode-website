@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Building Cross-Platform Apps with Flutter</title>
+
+    <meta name="description" content="A deep dive into Flutter's advantages and best practices for creating beautiful, performant apps for iOS and Android."/>
+    <meta name="keywords" content="flutter, cross-platform, mobile development, iOS, Android"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
+
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Building Cross-Platform Apps with Flutter"/>
+    <meta property="og:description" content="A deep dive into Flutter's advantages and best practices for creating beautiful, performant apps for iOS and Android."/>
+    <meta property="og:url" content="{{ url()->current() }}"/>
+    <meta property="og:site_name" content="Phoenix code Blog"/>
+
+    <link rel="canonical" href="test.com/post-2.html"/>
+
+    <link rel="shortcut icon" href="logo.png"/>
+    <link rel="icon" type="image/png" href="logo.png"/>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Ubuntu", "Cantarell", "Noto Sans", "Helvetica Neue", "Arial", "sans-serif"],
+                    },
+                    boxShadow: {
+                        soft: '0 10px 30px -12px rgba(0,0,0,0.25)'
+                    },
+                    backdropBlur: {
+                        xs: '2px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="font-inter antialiased bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+
+<div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10">
+    <div class="absolute -top-48 -right-48 h-96 w-96 rounded-full bg-gradient-to-tr from-indigo-300/30 to-purple-300/30 blur-3xl dark:from-indigo-500/15 dark:to-fuchsia-500/15"></div>
+    <div class="absolute -bottom-48 -left-48 h-96 w-96 rounded-full bg-gradient-to-tr from-cyan-300/30 to-emerald-300/30 blur-3xl dark:from-cyan-500/15 dark:to-emerald-500/15"></div>
+</div>
+
+<header class="sticky top-0 z-50 backdrop-blur border-b border-slate-200/60 bg-white/70 dark:bg-slate-950/60 dark:border-slate-800/60">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="logo.png" alt="Phoenix code Logo" class="h-12 w-14 object-contain">
+                <span class="text-xl font-semibold tracking-tight mt-4 ">Phoenix code</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm">
+                <a href="index.html#home" class="hover:text-indigo-600 dark:hover:text-indigo-400">Intro</a>
+                <a href="index.html#services" class="hover:text-indigo-600 dark:hover:text-indigo-400">Services</a>
+                <a href="index.html#projects" class="hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a>
+                <a href="index.html#testimonials" class="hover:text-indigo-600 dark:hover:text-indigo-400">Testimonials</a>
+                <a href="index.html#team" class="hover:text-indigo-600 dark:hover:text-indigo-400">Team</a>
+                <a href="blog.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Blog</a>
+                <a href="about.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">About Us</a>
+                <a href="index.html#contact" class="hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
+                <a href="request-service.html" class="rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">Request a service</a>
+
+            </nav>
+            <div class="flex items-center gap-2">
+                <button id="themeToggle" aria-label="Toggle dark mode" class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900 transition">
+                    <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364-1.414-1.414M7.05 7.05 5.636 5.636m12.728 0-1.414 1.414M7.05 16.95l-1.414 1.414" /><circle cx="12" cy="12" r="4" /></svg>
+                    <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
+                </button>
+                <button id="mobileMenuBtn" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="md:hidden hidden pb-4">
+            <nav class="grid gap-2 text-sm">
+                <a href="index.html#home" class="hover:text-indigo-600 dark:hover:text-indigo-400">Intro</a>
+                <a href="index.html#services" class="hover:text-indigo-600 dark:hover:text-indigo-400">Services</a>
+                <a href="index.html#projects" class="hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a>
+                <a href="index.html#testimonials" class="hover:text-indigo-600 dark:hover:text-indigo-400">Testimonials</a>
+                <a href="index.html#team" class="hover:text-indigo-600 dark:hover:text-indigo-400">Team</a>
+                <a href="blog.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Blog</a>
+                <a href="about.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">About Us</a>
+                <a href="index.html#contact" class="hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
+                <a href="request-service.html" class="rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">Request a service</a>
+
+            </nav>
+        </div>
+    </div>
+</header>
+
+<section class="py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <a href="blog.html" class="inline-flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300 hover:underline">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+            Back to all posts
+        </a>
+
+        <div class="mt-8 mx-auto max-w-4xl prose dark:prose-invert">
+            <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?q=80&w=1200&auto=format&fit=crop" alt="Mobile app UI on phone" class="w-full h-80 object-cover rounded-2xl mb-8">
+
+            <div class="text-sm text-slate-500 dark:text-slate-400 mb-2">
+                By <span class="font-semibold text-slate-700 dark:text-slate-300">Rina Malik</span> | July 18, 2025
+            </div>
+
+            <h1>Building Cross-Platform Apps with Flutter</h1>
+
+            <p>In today's fast-paced mobile landscape, the demand for apps on both iOS and Android has never been higher. Building two separate native apps can be costly and time-consuming. This is where cross-platform frameworks come in, and Flutter, Google's UI toolkit, stands out as a powerful solution. This article will explore why Flutter has become a favorite among developers and how it helps create beautiful and high-performance applications.</p>
+
+            <h2>The Advantages of Flutter</h2>
+            <p>Flutter offers several key benefits that streamline the development process. Its "hot reload" feature allows developers to see changes instantly, drastically speeding up UI design and bug fixing. With a single codebase, you can deploy to multiple platforms, saving significant time and resources. Furthermore, Flutter's rich set of customizable widgets ensures you can build stunning, pixel-perfect user interfaces that are consistent across all devices.</p>
+
+            <blockquote>"Flutter is not just about cross-platform development; it's about building a better user experience, faster." - The Phoenix code Team</blockquote>
+
+            <h2>Best Practices for a Smooth Project</h2>
+            <p>To get the most out of Flutter, it's essential to follow best practices. This includes using a state management solution (like BLoC or Provider) to keep your code organized, writing thorough tests to ensure reliability, and optimizing for performance by using efficient widgets. Proper project structure and clean architecture are also crucial for maintaining a scalable and maintainable codebase.</p>
+
+            <h2>Conclusion</h2>
+            <p>Flutter empowers developers to bring their ideas to life on both iOS and Android with unprecedented speed and visual fidelity. By leveraging its powerful features and following solid development practices, you can deliver exceptional mobile experiences that delight users and stand out in a crowded market. If you're looking to build your next mobile app, Flutter is an excellent choice to consider.</p>
+        </div>
+    </div>
+</section>
+
+<footer class="py-10 border-t border-slate-200/70 dark:border-slate-800/70">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="flex items-center gap-2">
+                    <img src="logo.png" alt="Phoenix code Logo" class="h-8 w-8 object-contain mb-3">
+                    <span class="text-sm text-slate-600 dark:text-slate-300 ">Phoenix code</span>
+                </a>
+                <span class="text-sm text-slate-600 dark:text-slate-300">© <span id="year"></span> Phoenix code. All rights reserved.</span>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-sm">
+                <a href="index.html#home" class="hover:text-indigo-600 dark:hover:text-indigo-400">Intro</a>
+                <a href="index.html#services" class="hover:text-indigo-600 dark:hover:text-indigo-400">Services</a>
+                <a href="index.html#projects" class="hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a>
+                <a href="index.html#testimonials" class="hover:text-indigo-600 dark:hover:text-indigo-400">Testimonials</a>
+                <a href="index.html#team" class="hover:text-indigo-600 dark:hover:text-indigo-400">Team</a>
+                <a href="blog.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Blog</a>
+                <a href="about.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">About Us</a>
+                <a href="request-service.html" class="rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">Request a service</a>
+
+                <a href="index.html#contact" class="hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
+            </nav>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    const preferred = localStorage.getItem('theme');
+    if (preferred === 'dark' || (!preferred && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        root.classList.add('dark');
+    }
+    themeToggle?.addEventListener('click', () => {
+        root.classList.toggle('dark');
+        localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+    });
+</script>
+
+</body>
+</html>
