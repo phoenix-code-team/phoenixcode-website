@@ -6,7 +6,6 @@
     <title>TechForge — Modern Tech Team</title>
     <meta name="description" content="A modern, responsive, dark-mode Tailwind CSS one-page template for a tech team: intro, services, projects, team, and contact." />
 
-    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -26,7 +25,6 @@
             }
         }
     </script>
-    <!-- Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -39,13 +37,11 @@
 </head>
 <body class="font-inter antialiased bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
 
-<!-- Decorative Background -->
 <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10">
     <div class="absolute -top-48 -right-48 h-96 w-96 rounded-full bg-gradient-to-tr from-indigo-300/30 to-purple-300/30 blur-3xl dark:from-indigo-500/15 dark:to-fuchsia-500/15"></div>
     <div class="absolute -bottom-48 -left-48 h-96 w-96 rounded-full bg-gradient-to-tr from-cyan-300/30 to-emerald-300/30 blur-3xl dark:from-cyan-500/15 dark:to-emerald-500/15"></div>
 </div>
 
-<!-- Header -->
 <header class="sticky top-0 z-50 backdrop-blur border-b border-slate-200/60 bg-white/70 dark:bg-slate-950/60 dark:border-slate-800/60">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
@@ -64,7 +60,6 @@
 
             <div class="flex items-center gap-2">
                 <button id="themeToggle" aria-label="Toggle dark mode" class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900 transition">
-                    <!-- Sun / Moon icons -->
                     <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364-1.414-1.414M7.05 7.05 5.636 5.636m12.728 0-1.414 1.414M7.05 16.95l-1.414 1.414" /><circle cx="12" cy="12" r="4" /></svg>
                     <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
                 </button>
@@ -74,7 +69,6 @@
             </div>
         </div>
 
-        <!-- Mobile menu -->
         <div id="mobileMenu" class="md:hidden hidden pb-4">
             <nav class="grid gap-2 text-sm">
                 <a href="#home" class="rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">Intro</a>
@@ -87,7 +81,6 @@
     </div>
 </header>
 
-<!-- Hero / Intro -->
 <section id="home" class="relative">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-24">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -112,7 +105,6 @@
             </div>
             <div class="reveal">
                 <div class="relative mx-auto aspect-[4/3] w-full max-w-xl overflow-hidden rounded-2xl border border-slate-200/70 dark:border-slate-800/80 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 shadow-soft">
-                    <!-- Mock dashboard illustration -->
                     <div class="absolute inset-0 p-6">
                         <div class="h-8 w-40 rounded-md bg-slate-200/80 dark:bg-slate-700/60"></div>
                         <div class="mt-6 grid grid-cols-3 gap-4">
@@ -128,7 +120,6 @@
     </div>
 </section>
 
-<!-- Services -->
 <section id="services" class="py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="reveal text-center">
@@ -137,7 +128,6 @@
         </div>
 
         <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <!-- Card -->
             <article class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-soft">
                 <div class="flex items-center gap-3">
             <span class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-600 text-white">
@@ -201,93 +191,91 @@
     </div>
 </section>
 
-<!-- Projects -->
 <section id="projects" class="py-20 border-t border-slate-200/70 dark:border-slate-800/70">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="reveal text-center">
             <h2 class="text-3xl sm:text-4xl font-bold">Projects</h2>
-            <p class="mt-3 text-slate-600 dark:text-slate-300">A selection of our recent work across web, mobile, and cloud.</p>
+            <p class="mt-3 text-slate-600 dark:text-slate-300">Case studies with clear outcomes and stacks.</p>
         </div>
-        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <!-- 6 project cards -->
-            <!-- Template for each card -->
-            <!-- Card 1 -->
-            <article class="reveal group overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft">
-                <div class="aspect-video bg-gradient-to-br from-indigo-500/30 to-fuchsia-500/30"></div>
-                <div class="p-6">
-                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                        <span class="rounded-full bg-indigo-600/10 px-2 py-0.5 text-indigo-700 dark:text-indigo-300">SaaS</span>
-                        <span class="rounded-full bg-fuchsia-600/10 px-2 py-0.5 text-fuchsia-700 dark:text-fuchsia-300">React</span>
-                    </div>
-                    <h3 class="mt-3 text-lg font-semibold">Analytics Dashboard</h3>
-                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Realtime metrics, role‑based access, and custom visualizations.</p>
-                </div>
-            </article>
 
-            <article class="reveal group overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft">
-                <div class="aspect-video bg-gradient-to-br from-emerald-500/30 to-cyan-500/30"></div>
-                <div class="p-6">
-                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                        <span class="rounded-full bg-emerald-600/10 px-2 py-0.5 text-emerald-700 dark:text-emerald-300">Fintech</span>
-                        <span class="rounded-full bg-cyan-600/10 px-2 py-0.5 text-cyan-700 dark:text-cyan-300">Flutter</span>
-                    </div>
-                    <h3 class="mt-3 text-lg font-semibold">Mobile Wallet</h3>
-                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Secure payments, KYC, and instant transfers across regions.</p>
-                </div>
-            </article>
+        <div class="reveal mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex flex-wrap gap-2" id="projectsFilters">
+                <button data-filter="all" class="px-3 py-1.5 rounded-full text-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 active-filter">All</button>
+                <button data-filter="Web" class="px-3 py-1.5 rounded-full text-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800">Web</button>
+                <button data-filter="Mobile" class="px-3 py-1.5 rounded-full text-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800">Mobile</button>
+                <button data-filter="AI" class="px-3 py-1.5 rounded-full text-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800">AI</button>
+                <button data-filter="Cloud" class="px-3 py-1.5 rounded-full text-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800">Cloud</button>
+            </div>
+            <div class="relative">
+                <input id="projectsSearch" type="search" placeholder="Search projects..." class="w-full sm:w-72 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-3 py-2 pl-9 outline-none focus:ring-2 focus:ring-blue-600"/>
+                <svg class="absolute left-3 top-2.5 h-5 w-5 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/></svg>
+            </div>
+        </div>
 
-            <article class="reveal group overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft">
-                <div class="aspect-video bg-gradient-to-br from-amber-500/30 to-rose-500/30"></div>
-                <div class="p-6">
-                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                        <span class="rounded-full bg-amber-600/10 px-2 py-0.5 text-amber-700 dark:text-amber-300">E‑commerce</span>
-                        <span class="rounded-full bg-rose-600/10 px-2 py-0.5 text-rose-700 dark:text-rose-300">Laravel</span>
-                    </div>
-                    <h3 class="mt-3 text-lg font-semibold">Marketplace Platform</h3>
-                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Multi‑vendor architecture, search, and subscription billing.</p>
-                </div>
-            </article>
+        <div id="projectsGrid" class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </div>
 
-            <article class="reveal group overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft">
-                <div class="aspect-video bg-gradient-to-br from-indigo-500/30 to-cyan-500/30"></div>
-                <div class="p-6">
-                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                        <span class="rounded-full bg-indigo-600/10 px-2 py-0.5 text-indigo-700 dark:text-indigo-300">Healthcare</span>
-                        <span class="rounded-full bg-cyan-600/10 px-2 py-0.5 text-cyan-700 dark:text-cyan-300">Next.js</span>
+    <div id="projectModal" class="fixed inset-0 z-[60] hidden">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" data-close></div>
+        <div class="absolute inset-x-0 bottom-0 sm:inset-auto sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 w-full sm:w-[900px] max-h-[94vh] overflow-hidden">
+            <article class="mx-auto m-0 sm:rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-soft">
+                <header class="flex items-center justify-between gap-4 p-4 sm:p-6 border-b border-slate-200/70 dark:border-slate-800/70">
+                    <div>
+                        <h3 id="pmTitle" class="text-xl sm:text-2xl font-semibold"></h3>
+                        <p id="pmSubtitle" class="text-sm text-slate-600 dark:text-slate-300 mt-1"></p>
                     </div>
-                    <h3 class="mt-3 text-lg font-semibold">Telemedicine Suite</h3>
-                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Video consults, prescriptions, and patient monitoring.</p>
-                </div>
-            </article>
+                    <button class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900" data-close>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </header>
 
-            <article class="reveal group overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft">
-                <div class="aspect-video bg-gradient-to-br from-emerald-500/30 to-amber-500/30"></div>
-                <div class="p-6">
-                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                        <span class="rounded-full bg-emerald-600/10 px-2 py-0.5 text-emerald-700 dark:text-emerald-300">AI</span>
-                        <span class="rounded-full bg-amber-600/10 px-2 py-0.5 text-amber-700 dark:text-amber-300">Python</span>
+                <div class="grid lg:grid-cols-2 gap-0">
+                    <div class="p-4 sm:p-6 border-b lg:border-b-0 lg:border-r border-slate-200/70 dark:border-slate-800/70">
+                        <div class="aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                            <img id="pmHero" alt="Project preview" class="h-full w-full object-cover"/>
+                        </div>
+                        <div id="pmThumbs" class="mt-3 grid grid-cols-5 gap-2"></div>
                     </div>
-                    <h3 class="mt-3 text-lg font-semibold">Vision Inspection</h3>
-                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Automated defect detection with real‑time alerts.</p>
-                </div>
-            </article>
 
-            <article class="reveal group overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft">
-                <div class="aspect-video bg-gradient-to-br from-fuchsia-500/30 to-rose-500/30"></div>
-                <div class="p-6">
-                    <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                        <span class="rounded-full bg-fuchsia-600/10 px-2 py-0.5 text-fuchsia-700 dark:text-fuchsia-300">EdTech</span>
-                        <span class="rounded-full bg-rose-600/10 px-2 py-0.5 text-rose-700 dark:text-rose-300">Vue</span>
+                    <div class="p-4 sm:p-6 space-y-6">
+                        <div>
+                            <h4 class="font-semibold">Overview</h4>
+                            <p id="pmDesc" class="mt-2 text-sm text-slate-700 dark:text-slate-300"></p>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <h4 class="font-semibold">Tech Stack</h4>
+                                <div id="pmStack" class="mt-2 flex flex-wrap gap-2"></div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Scope</h4>
+                                <ul id="pmScope" class="mt-2 list-disc list-inside text-sm text-slate-700 dark:text-slate-300 space-y-1"></ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="font-semibold">Results</h4>
+                            <ul id="pmResults" class="mt-2 list-disc list-inside text-sm text-slate-700 dark:text-slate-300 space-y-1"></ul>
+                        </div>
+
+                        <div class="flex flex-wrap gap-3">
+                            <a id="pmDemo" target="_blank" class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h6m0 0v6m0-6L10 16"/></svg>
+                                Live Demo
+                            </a>
+                            <a id="pmRepo" target="_blank" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 dark:border-slate-700 px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.5c0 4.85 3.14 8.97 7.49 10.42.55.1.75-.24.75-.53 0-.26-.01-1.12-.02-2.04-3.05.66-3.7-1.3-3.7-1.3-.5-1.28-1.22-1.62-1.22-1.62-.99-.67.08-.66.08-.66 1.1.08 1.68 1.13 1.68 1.13.98 1.67 2.58 1.19 3.21.91.1-.71.38-1.19.69-1.46-2.44-.28-5-1.22-5-5.45 0-1.2.43-2.19 1.13-2.96-.11-.28-.49-1.4.11-2.92 0 0 .92-.29 3.02 1.13a10.46 10.46 0 0 1 5.5 0c2.1-1.42 3.02-1.13 3.02-1.13.6 1.52.22 2.64.11 2.92.7.77 1.12 1.76 1.12 2.96 0 4.24-2.56 5.17-5.01 5.44.39.33.73.98.73 1.98 0 1.43-.01 2.59-.01 2.95 0 .29.2.64.76.53 4.34-1.45 7.48-5.57 7.48-10.42C23.02 5.24 18.27.5 12 .5z"/></svg>
+                                Repository
+                            </a>
+                        </div>
                     </div>
-                    <h3 class="mt-3 text-lg font-semibold">Learning Platform</h3>
-                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Interactive courses, quizzes, and analytics for educators.</p>
                 </div>
             </article>
         </div>
     </div>
 </section>
 
-<!-- Team -->
 <section id="team" class="py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="reveal text-center">
@@ -295,7 +283,6 @@
             <p class="mt-3 text-slate-600 dark:text-slate-300">A balanced group of engineers, designers, and strategists.</p>
         </div>
         <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <!-- Member card template -->
             <article class="reveal rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 text-center shadow-soft">
                 <div class="mx-auto h-20 w-20 rounded-full bg-gradient-to-br from-indigo-500 to-fuchsia-500 text-white grid place-items-center text-2xl font-bold">AL</div>
                 <h3 class="mt-4 text-lg font-semibold">Alex Lee</h3>
@@ -339,7 +326,6 @@
     </div>
 </section>
 
-<!-- Contact -->
 <section id="contact" class="py-20 border-t border-slate-200/70 dark:border-slate-800/70">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="reveal text-center">
@@ -405,7 +391,6 @@
     </div>
 </section>
 
-<!-- Footer -->
 <footer class="py-10 border-t border-slate-200/70 dark:border-slate-800/70">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -469,6 +454,187 @@
             alert('Thanks! Your message has been sent.');
         }, 1200);
     });
+
+    // =====================
+    // Projects Module (data + UI)
+    // =====================
+    const PROJECTS = [
+        {
+            id: 'wallet',
+            title: 'Mobile Wallet',
+            subtitle: 'Fintech · Flutter · CI/CD',
+            category: 'Mobile',
+            tags: ['Flutter','Dio','Bloc','Firebase'],
+            description: 'A secure cross‑border wallet with KYC, instant transfers, and on‑device encryption. Built with clean architecture and automated releases.',
+            scope: ['Auth & KYC flows','Transfers & requests','Multi‑currency support','Push notifications','Play/App Store release'],
+            results: ['24% higher conversion vs. previous app','99.95% crash‑free sessions','< 1s cold start on mid‑range devices'],
+            links: { demo: '#', repo: '#' },
+            images: [
+                'https://images.unsplash.com/photo-1556742400-b5b7c5121f43?q=80&w=1200&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop'
+            ]
+        },
+        {
+            id: 'telemed',
+            title: 'Telemedicine Suite',
+            subtitle: 'Healthcare · Next.js · WebRTC',
+            category: 'Web',
+            tags: ['Next.js','Tailwind','WebRTC','Node'],
+            description: 'HIPAA-ready telemedicine with video visits, e-prescriptions, and patient monitoring dashboards.',
+            scope: ['Doctor/patient portals','Video calls','E-prescriptions','Admin analytics'],
+            results: ['2.3× higher appointment throughput','Average wait time down to 3m'],
+            links: { demo: '#', repo: '#' },
+            images: [
+                'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop'
+            ]
+        },
+        {
+            id: 'market',
+            title: 'Marketplace Platform',
+            subtitle: 'E‑commerce · Laravel · Nuxt',
+            category: 'Web',
+            tags: ['Laravel','MySQL','Nuxt','Stripe'],
+            description: 'Multi‑vendor marketplace with search, inventory sync, and subscription billing.',
+            scope: ['Vendor onboarding','Catalog & search','Checkout & subscriptions','Payouts'],
+            results: ['GMV +38% after v2','SEO traffic +61%'],
+            links: { demo: '#', repo: '#' },
+            images: [
+                'https://images.unsplash.com/photo-1515165562835-c3b8c2e5c9f3?q=80&w=1200&auto=format&fit=crop'
+            ]
+        },
+        {
+            id: 'vision',
+            title: 'Vision Inspection',
+            subtitle: 'AI · Python · Edge',
+            category: 'AI',
+            tags: ['Python','OpenCV','ONNX','MQTT'],
+            description: 'Real‑time defect detection on the production line with edge inferencing and live alerts.',
+            scope: ['Dataset & training','ONNX quantization','Edge deploy','Realtime dashboard'],
+            results: ['Defect detection +92% recall','False positives −34%'],
+            links: { demo: '#', repo: '#' },
+            images: [
+                'https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1200&auto=format&fit=crop'
+            ]
+        },
+        {
+            id: 'learning',
+            title: 'Learning Platform',
+            subtitle: 'EdTech · Vue · Gamification',
+            category: 'Web',
+            tags: ['Vue','Node','Mongo','Redis'],
+            description: 'Interactive courses with quizzes, progress tracking, and educator analytics.',
+            scope: ['Course builder','Quizzes & grading','Reports','Gamification'],
+            results: ['DAU +47% after gamification'],
+            links: { demo: '#', repo: '#' },
+            images: [
+                'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop'
+            ]
+        },
+        {
+            id: 'platform',
+            title: 'Analytics Dashboard',
+            subtitle: 'SaaS · React · RBAC',
+            category: 'Cloud',
+            tags: ['React','Node','Postgres','Docker'],
+            description: 'Realtime metrics with custom visualizations and role‑based access control.',
+            scope: ['RBAC','Charts','Audit logs','Teams & SSO'],
+            results: ['Onboarding time −40%','Support tickets −25%'],
+            links: { demo: '#', repo: '#' },
+            images: [
+                'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop'
+            ]
+        }
+    ];
+
+    const grid = document.getElementById('projectsGrid');
+    const search = document.getElementById('projectsSearch');
+    const filters = document.getElementById('projectsFilters');
+    let currentFilter = 'all';
+
+    function projectCard(p){
+        const tagChips = p.tags.map(t=>`<span class="rounded-full bg-blue-600/10 px-2 py-0.5 text-xs text-blue-700 dark:text-cyan-300">${t}</span>`).join('');
+        const cats = `<span class="rounded-full bg-slate-500/10 px-2 py-0.5 text-xs text-slate-600 dark:text-slate-300">${p.category}</span>`;
+        return `
+      <article class="group overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-soft hover:shadow-lg transition" role="button" tabindex="0" aria-label="Open ${p.title}" data-open="${p.id}">
+        <div class="aspect-video bg-slate-100 dark:bg-slate-900">
+          <img src="${p.images[0]}" alt="${p.title}" class="h-full w-full object-cover"/>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">${cats}${tagChips}</div>
+          <h3 class="mt-3 text-lg font-semibold">${p.title}</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300 line-clamp-2">${p.description}</p>
+          <div class="mt-4 inline-flex items-center gap-1 text-sm text-blue-600 dark:text-cyan-400">View details
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </article>`;
+    }
+
+    function renderProjects(){
+        const q = (search?.value || '').toLowerCase();
+        const list = PROJECTS.filter(p =>
+            (currentFilter === 'all' || p.category === currentFilter) &&
+            (p.title.toLowerCase().includes(q) || p.description.toLowerCase().includes(q) || p.tags.join(' ').toLowerCase().includes(q))
+        );
+        grid.innerHTML = list.map(projectCard).join('');
+    }
+
+    filters?.addEventListener('click', (e)=>{
+        const btn = e.target.closest('button[data-filter]');
+        if(!btn) return;
+        currentFilter = btn.dataset.filter;
+        filters.querySelectorAll('button').forEach(b=>b.classList.remove('active-filter'));
+        btn.classList.add('active-filter');
+        renderProjects();
+    });
+    search?.addEventListener('input', renderProjects);
+
+    // Modal logic
+    const modal = document.getElementById('projectModal');
+    const pmTitle = document.getElementById('pmTitle');
+    const pmSubtitle = document.getElementById('pmSubtitle');
+    const pmDesc = document.getElementById('pmDesc');
+    const pmStack = document.getElementById('pmStack');
+    const pmScope = document.getElementById('pmScope');
+    const pmResults = document.getElementById('pmResults');
+    const pmHero = document.getElementById('pmHero');
+    const pmThumbs = document.getElementById('pmThumbs');
+    const pmDemo = document.getElementById('pmDemo');
+    const pmRepo = document.getElementById('pmRepo');
+
+    function openProject(id){
+        const p = PROJECTS.find(x=>x.id===id);
+        if(!p) return;
+        pmTitle.textContent = p.title;
+        pmSubtitle.textContent = p.subtitle;
+        pmDesc.textContent = p.description;
+        pmStack.innerHTML = p.tags.map(t=>`<span class='px-2 py-1 rounded-lg text-xs border border-slate-300 dark:border-slate-700'>${t}</span>`).join('');
+        pmScope.innerHTML = p.scope.map(i=>`<li>${i}</li>`).join('');
+        pmResults.innerHTML = p.results.map(i=>`<li>${i}</li>`).join('');
+        pmDemo.href = p.links.demo || '#';
+        pmRepo.href = p.links.repo || '#';
+        pmHero.src = p.images[0];
+        pmThumbs.innerHTML = p.images.map((src,idx)=>`<button class='rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 aspect-video' data-idx='${idx}'><img src='${src}' alt='thumb' class='h-full w-full object-cover'/></button>`).join('');
+        pmThumbs.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{pmHero.src = p.images[btn.dataset.idx];}));
+
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeProject(){ modal.classList.add('hidden'); document.body.style.overflow=''; }
+
+    grid?.addEventListener('click',(e)=>{
+        const card = e.target.closest('[data-open]');
+        if(!card) return;
+        openProject(card.dataset.open);
+    });
+    modal?.addEventListener('click',(e)=>{ if(e.target.hasAttribute('data-close')) closeProject(); });
+    window.addEventListener('keydown',(e)=>{ if(!modal.classList.contains('hidden') && e.key==='Escape') closeProject(); });
+
+    // Initial render
+    renderProjects();
 </script>
+
 </body>
 </html>
